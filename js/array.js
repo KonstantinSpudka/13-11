@@ -8,7 +8,7 @@
 // const arr1 = []; // Синтаксичний цукор
 // const arr2 = new Array();
 
-// const arr3 = [1, 2, 3, 4];
+const arr3 = [1, 2, 3, 4];
 
 // const users = [
 //   { id: 1, name: "Test" },
@@ -35,7 +35,7 @@
 //   }
 //   return sum;
 // }
-// // console.log(countSum(arr3));
+// console.log(countSum(arr3));
 
 // const arr4 = arr3;
 
