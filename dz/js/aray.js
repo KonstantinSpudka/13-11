@@ -86,7 +86,8 @@ function isNoZerro(noZerro) {
 const arrResult = arr.filter(isNoZerro);
 console.log("arrResult :>> ", arrResult);
 
-// 9 Отримати новий масив із заданого,
+// 9 -------------------------------------
+// Отримати новий масив із заданого,
 // який міститиме всі елементи вихідного,
 // поділені на 100 (99, 5, 0, 9, 30 => 0.99, 0.05, 0, 0.09, 0.3).
 
@@ -100,7 +101,8 @@ function arrDivide(num) {
 const arrResultDivide = arr.map(arrDivide);
 console.log("object :>> ", arrResultDivide);
 
-// 10 Вивести елементи масиву, зведені у куб.
+// 10 --------------------------------------
+// Вивести елементи масиву, зведені у куб.
 
 const arr3 = [99, 5, 10, 9, 30];
 function cub(num) {
@@ -109,7 +111,8 @@ function cub(num) {
 
 arr2.forEach(cub);
 
-// 11 Визначити індекс елемента, квадрат якого дорівнює 100,
+// 11 ---------------------------------------
+// Визначити індекс елемента, квадрат якого дорівнює 100,
 // і видалити його, або видати діагностичне повідомлення, якщо такого елементу не існує.
 
 function square(num) {
@@ -123,3 +126,64 @@ if (squareNum === -1) {
   console.log("Індекс елемента :>> ", +arr3.splice(squareNum, 1), "Видалено");
 }
 console.log("arr2 :>> ", arr3);
+
+// ----------------------------------------------------------------------
+
+// 1.1 ---------------------------------------
+// Для
+
+function User(name, surname, age, isMale, email, isSubscribed) {
+  this.firstName = name;
+  this.lastName = surname;
+  this.age = age;
+  this.isMale = isMale;
+  this.email = email;
+  this.isSubscribed = isSubscribed;
+}
+
+const users = [];
+
+for (let i = 0; i < 100; i++) {
+  const user = new User(
+    `Username${i}`,
+    `Usersurname${i}`,
+    Math.floor(Math.random() * 90),
+    Math.random() > 0.5,
+    `useremail${i}@gmail.com`,
+    Math.random() > 0.5
+  );
+  users.push(user);
+}
+
+// прописати метод getFullName() (повертає рядок з повним ім'ям) для користувача.
+// Загальну логіку (тобто зазначений метод) винести на прототип.
+
+User.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
+};
+console.log("users.pop.getFuulName :>> ", users.pop().getFullName());
+
+// 1.2 ---------------------------------------
+// Отримати масив повних імен осіб жіночої статі шкільного віку (6 – 18 років).
+
+const girlsName = users
+  .filter(function isGirls(item) {
+    return !item.isMale && item.age >= 6 && item.age <= 18;
+  })
+  .map((item) => item.getFullName());
+console.log("girlsName :>> ", girlsName);
+
+// 1.3 ---------------------------------------
+// Видалити з масиву користувача з email useremail5@gmail.com
+
+const deleteEmail = users.filter(function isDeleteEmail(item) {
+  return item.email === "useremail5@gmail.com";
+});
+
+deleteEmail.forEach((element) => {
+  users.splice(users.indexOf(element), 1);
+});
+console.log("object :>> ", users);
+
+// 1.4 ---------------------------------------
+// Перевірити, чи є серед користувачів користувач з email`ом useremail99@gmail.com
