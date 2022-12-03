@@ -27,15 +27,15 @@ const arr3 = [1, 2, 3, 4];
 // написати ф-цію для обчислення суми елементів масиву
 // ф-ція приймає масив і повертає його суму
 
-// function countArray(arr) {
-//   let sum = 0;
-//   for (let i = 0; i < arr.lenght; i++) {
-//     console.log(arr[i]);
-//     sum += arr[i];
-//   }
-//   return sum;
-// }
-// console.log(countSum(arr3));
+function countSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.lenght; i++) {
+    console.log(arr[i]);
+    sum += arr[i];
+  }
+  return sum;
+}
+console.log(countSum(arr3));
 
 // const arr4 = arr3;
 
